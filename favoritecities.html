@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="favoritecities.js" defer></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <header class="flex flex-wrap items-center justify-between p-6 bg-[#D29EE8] shadow">
+        
+        <!-- Navigation Bar -->
+<nav class="bg-[#D29EE8] shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#4A2A6A]" viewBox="0 0 512 512">
+                    <path d="M375.7 19.7c-1.5-8-6.9-14.7-14.4-17.8s-16.1-2.2-22.8 2.4L256 61.1 173.5 4.2c-6.7-4.6-15.3-5.5-22.8-2.4s-12.9 9.8-14.4 17.8l-18.1 98.5L19.7 136.3c-8 1.5-14.7 6.9-17.8 14.4s-2.2 16.1 2.4 22.8L61.1 256 4.2 338.5c-4.6 6.7-5.5 15.3-2.4 22.8s9.8 13 17.8 14.4l98.5 18.1 18.1 98.5c1.5 8 6.9 14.7 14.4 17.8s16.1 2.2 22.8-2.4L256 450.9l82.5 56.9c6.7 4.6 15.3 5.5 22.8 2.4s12.9-9.8 14.4-17.8l18.1-98.5 98.5-18.1c8-1.5 14.7-6.9 17.8-14.4s2.2-16.1-2.4-22.8L450.9 256l56.9-82.5c4.6-6.7 5.5-15.3 2.4-22.8s-9.8-12.9-17.8-14.4l-98.5-18.1L375.7 19.7zM269.6 110l65.6-45.2 14.4 78.3c1.8 9.8 9.5 17.5 19.3 19.3l78.3 14.4L402 242.4c-5.7 8.2-5.7 19 0 27.2l45.2 65.6-78.3 14.4c-9.8 1.8-17.5 9.5-19.3 19.3l-14.4 78.3L269.6 402c-8.2-5.7-19-5.7-27.2 0l-65.6 45.2-14.4-78.3c-1.8-9.8-9.5-17.5-19.3-19.3L64.8 335.2 110 269.6c5.7-8.2 5.7-19 0-27.2L64.8 176.8l78.3-14.4c9.8-1.8 17.5-9.5 19.3-19.3l14.4-78.3L242.4 110c8.2 5.7 19 5.7 27.2 0zM256 368a112 112 0 1 0 0-224 112 112 0 1 0 0 224zM192 256a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z" />
+                </svg>
+                <span class="text-[#4A2A6A] text-2xl font-bold ml-2">Weatherly</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 m-6">
+                <a href="weather.html" class="nav-link text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">Dashboard</a>
+                <a href="favoritecities.html" class="text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">Favorite Cities</a>
+                <a href="searchhistory.html" class="text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">Search History</a>
+                <a href="news.html" class="text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">News</a>
+                <a href="livemap.html" class="text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">Live Map</a>
+                <a href="cityimages.html" class="text-[#4A2A6A] hover:text-[#5c3a8c] font-semibold nav-link">City Images</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="ml-24 md:hidden flex items-center">
+                <button 
+                    id="menuToggle" 
+                    class="text-white focus:outline-none focus:ring-2 focus:ring-white transition"
+                    aria-label="Toggle Menu"
+                >  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#D29EE8] px-4 py-2 space-y-2">
+        <a href="weather.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">Dashboard</a>
+        <a href="favoritecities.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">Favorite Cities</a>
+        <a href="searchhistory.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">Search History</a>
+        <a href="news.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">News Section</a>
+        <a href="livemap.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">Live Map</a>
+        <a href="cityimages.html" class="block text-[#4A2A6A] hover:bg-[#5c3a8c] hover:text-white px-2 py-1 rounded">City Images</a>
+    </div>
+</nav>
+    
+<div class="relative w-full md:w-1/5 flex items-center max-w-md mx-auto mt-4 md:mt-0">
+    <input 
+        id="cityInput" 
+        type="text" 
+        placeholder="Enter city name..." 
+        class="w-full px-4 py-2 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+    />
+    <button 
+        id="searchBtn" 
+        class="px-4 py-2 bg-[#4A2A6A] text-white rounded-r-full hover:bg-[#5c3a8c] transition">
+        Search
+    </button>
+</div>
+</header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto p-6">
+        <h1 class="text-4xl font-bold text-[#4A2A6A] mb-6">Favorite Cities</h1>
+        
+        <!-- Clear History Button -->
+        <button
+    id="clearFavorites"
+    class="px-4 py-2 bg-white text-purple-300 font-semibold rounded-lg shadow-md hover:bg-purple-300 hover:text-white transition duration-300 mb-6"
+>
+    Clear
+</button>
+
+        <!-- History Container -->
+        <div id="favoriteContainer" class="bg-white shadow-lg rounded-lg p-6">
+            <!-- Search history will be dynamically inserted here -->
+            <p class="text-purple-500">No Favorite Cities added yet.</p>
+        </div>
+    </main>
+</body>
+
+</html>

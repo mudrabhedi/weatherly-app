@@ -1,0 +1,175 @@
+body {
+    background-color: #D29EE8; /* Deep Teal background */
+    color: #FFFFFF; /* White text for contrast */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Optional: Set a clean font */
+}
+
+/* For the cards */
+.forecast-card {
+    background-color: rgba(255, 255, 255, 0.7); /* Light but visible background */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Thin white border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    color: #333333; /* Dark text for better readability */
+}
+
+/* For the text */
+.forecast-card p {
+    color: #333333; /* Dark text color */
+}
+
+/* Optional: Increase visibility of icons */
+.forecast-card img {
+    filter: brightness(1.5); /* Make the icons brighter */
+}
+
+/* Hover effect for better visibility */
+.forecast-card:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly darker background on hover */
+}
+
+
+/* Icon Styles */
+img {
+    fill: currentColor; /* Use the current text color for icons */
+}
+
+/* Customize Colors for Specific Icons */
+.humidity-icon {
+    color: #3b82f6; /* Blue for humidity */
+}
+
+.pressure-icon {
+    color: #10b981; /* Green for pressure */
+}
+
+.wind-speed-icon {
+    color: #f59e0b; /* Amber for wind speed */
+}
+
+.wind-direction-icon {
+    color: #ef4444; /* Red for wind direction */
+}
+
+.cloud-coverage-icon {
+    color: #64748b; /* Slate for cloud coverage */
+}
+
+.visibility-icon {
+    color: #6366f1; /* Indigo for visibility */
+}
+
+.sunrise-icon {
+    color: #facc15; /* Yellow for sunrise */
+}
+
+.sunset-icon {
+    color: #fb923c; /* Orange for sunset */
+}
+
+/* Text Styles */
+.text-gray-500 {
+    color: #6b7280; /* Lighter gray for labels */
+}
+
+.text-blue-700 {
+    color: #2563eb; /* Darker blue for titles */
+}
+
+.text-blue-900 {
+    color: #1e40af; /* Deep blue for values */
+}
+
+.font-semibold {
+    font-weight: 600; /* Slightly bolder labels */
+}
+
+.font-bold {
+    font-weight: 700; /* Bold for values */
+}
+
+/* General Box Styling */
+.bg-white {
+    background-color: #ffffff;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem; /* Rounded corners */
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Smooth shadow */
+}
+
+/* Search bar adjustments */
+#cityInput {
+    transition: all 0.3s ease;
+}
+#cityInput:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+}
+
+/* Right card adjustments */
+.grid > div {
+    padding: 8px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.grid > div:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#menuToggle {
+    margin-left: auto; /* Pushes the toggle to the right */
+    line-height: 1; /* Centers the lines vertically */
+}
+
+/* Ensures the weather card has a clean layout */
+.weather-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #d8b4f8; /* Optional: Adjust card color */
+    border-radius: 0.75rem;
+    position: relative;
+}
+
+#weatherIcon {
+    height: 8rem; /* Big size for the icon */
+    width: 8rem;
+    opacity: 0.9;
+}
+@keyframes purpleGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.6), 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(139, 92, 246, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.6), 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+}
+
+.animate-purple-glow {
+    animation: purpleGlow 2s infinite alternate;
+    border-radius: 50%;
+}
+
+/* Base style for nav links */
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Active state styling */
+.nav-link.active {
+    background-color: #D29EE8; /* Active purple background */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+    border: 2px solid #ffffff; /* Optional: Add a border for emphasis */
+}

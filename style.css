@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mainbody{
+    background-color: rgb(0, 22, 44);
+}
+
+.maincontent{
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(to right, #D29EE8, #F3D9FA);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
