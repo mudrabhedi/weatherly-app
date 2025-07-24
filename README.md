@@ -111,8 +111,8 @@ WEATHERLY-APP/
 └── weather.js                # Logic for fetching and displaying weather data
 
 
----
 
+```
 ## How to Use
 
 ### Searching for Weather
